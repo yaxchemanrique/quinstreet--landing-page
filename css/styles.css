@@ -1,3 +1,71 @@
+/* BACKGROUND COLOR TRANSITION ------------------------------ */
+/* 
+.background-transition:
+Class is responsible for managing the dynamic transition of background colors using the ::before pseudo-element.
+  * The ::before pseudo-element sits on top of the background, achieving an animated effect as it transitions between colors.
+  * The element is positioned relatively to accommodate and align the pseudo-elements precisely with it.
+  * It utilizes internal CSS variables --_bg-color-a and --_bg-color-b to determine the colors involved in the transition.
+  * --_bg-color-a is used as the initial visible background color.
+  * --_bg-color-b defines the color to transition to during animation.
+  * isolation: isolate; ensures proper stacking of nested elements with pseudo-elements for rendering.
+
+This creates a smooth color transition effect.
+*/
+.background-transition {
+  --_bg-color-a: var(--clr-neutral-200);
+  --_bg-color-b: var(--clr-tertiary-100);
+
+  position: relative;
+  background-color: var(--_bg-color-a);
+  isolation: isolate;
+}
+
+/* 
+.background-transition::before:
+Pseudo-element implementing the animation and visual layering for .background-transition.
+  * Positioned absolutely using `inset: 0` to cover the entire container accurately.
+  * Z-index of -1 ensures it remains behind any content inside the .background-transition.
+  * Initially set with background-color --_bg-color-b and fades out to reveal .background-transition's background.
+  * The opacity transition creates a continuous alternate effect.
+*/
+.background-transition::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--_bg-color-b);
+  animation: opacity-fade-out 10s infinite alternate ease-in-out;
+}
+
+@keyframes opacity-fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 
+.background-pattern:
+Manages and displays a repeating background pattern.
+  * Update the fill color in the SVG file located at /assets/images/bg-pattern.svg to modify the pattern's color.
+  * The pattern repeats every 60vw for optimal visual design and consistency with the prototype on mobile.
+  * For screens wider than 767px, background size adjusts to 35vw for improved design alignment.
+*/
+
+.background-pattern {
+  background-image: url('../assets/images/bg-pattern.svg');
+  background-size: 60vw;
+}
+
+@media (min-width: 767px) {
+  .background-pattern {
+    background-size: 35vw;
+  }
+}
+
 /* NAV ------------------------------ */
 nav {
   background-color: var(--clr-neutral-900);

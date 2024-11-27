@@ -9,52 +9,56 @@
   <title>QuinStreet - Home</title>
 </head>
 <body>
-  <nav>
-    <a href="index.html" title="Go to homepage">
-      <img src="./assets/images/modernize-logo--dark.svg" alt="Modernize: home empowerment">
-    </a>
-  </nav>
-  <main>
-    <form id="user-details-form" labelledby="form-header">
-      <h1 id="form-header"><span>Enter to win a 3rd generation Nest Learning Thermostat worth $249.</span></h1>
-      <div>
-        <label class="sr-only" for="name">Name</label>
-        <input type="text" placeholder="Name" name="name" id="name" pattern="^[A-Za-z]{2,}$"
-          title="Your name should be at least 2 letters long" required aria-required="true">
-        <div class="input-row">
-          <label class="sr-only" for="city">City</label>
-          <input type="text" name="city" id="city" placeholder="City">
-          <label class="sr-only" for="state">State</label>
-          <input type="text" name="state" id="state" placeholder="State">
-        </div>
-        <label class="sr-only" for="phone-number">Phone Number</label>
-        <input type="tel" name="phone-number" id="phone-number" placeholder="Phone Number"
-          pattern="^\(\d{3}\) \d{3}-\d{4}$" title="Please enter a valid phone number" required aria-required="true">
-        <label class="sr-only" for="email">Email Address</label>
-        <input type="email" name="email" id="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-          title="Enter a valid email address" required aria-required="true">
-        <button class="button button-primary" id="submit-button" aria-label="Submit entry form to win">
-          enter to win
-        </button>
-      </div>
-    </form>
-    <aside role="complementary" aria-labelledby="article-title">
-      <article class="article">
-        <h2><span id="article-title">Even More Savings</span></h2>
-        <div class="article-content">
-          <header class="article-header">
-            <p>advertorial</p>
-            <h3>Tricks Homeowners Use to Eliminate Bills</h3>
-          </header>
-          <p>
-            Surging energy bills, unpredictable weather patterns, and dissatisfaction with utility companies have
-            homeowners scrambling...
-            <a href="https://www.google.com" target="_blank"
-              aria-label="Read more about tricks homeowners use to eliminate bills">read more</a>
-          </p>
-        </div>
-      </article>
-    </aside>
-  </main>
+  <div class="background-transition">
+    <div class="background-pattern">
+      <nav>
+        <a href="index.html" title="Go to homepage">
+          <img src="./assets/images/modernize-logo--dark.svg" alt="Modernize: home empowerment">
+        </a>
+      </nav>
+      <main>
+        <form id="user-details-form" labelledby="form-header">
+          <h1 id="form-header"><span>Enter to win a 3rd generation Nest Learning Thermostat worth $249.</span></h1>
+          <div>
+            <label class="sr-only" for="name">Name</label>
+            <input type="text" placeholder="Name" name="name" id="name" pattern="^[A-Za-z]{2,}$"
+              title="Your name should be at least 2 letters long" required aria-required="true">
+            <div class="input-row">
+              <label class="sr-only" for="city">City</label>
+              <input type="text" name="city" id="city" placeholder="City">
+              <label class="sr-only" for="state">State</label>
+              <input type="text" name="state" id="state" placeholder="State">
+            </div>
+            <label class="sr-only" for="phone-number">Phone Number</label>
+            <input type="tel" name="phone-number" id="phone-number" placeholder="Phone Number"
+              pattern="^\(\d{3}\) \d{3}-\d{4}$" title="Please enter a valid phone number" required aria-required="true">
+            <label class="sr-only" for="email">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+              title="Enter a valid email address" required aria-required="true">
+            <button class="button button-primary" id="submit-button" aria-label="Submit entry form to win">
+              enter to win
+            </button>
+          </div>
+        </form>
+        <aside role="complementary" aria-labelledby="article-title">
+          <article class="article">
+            <h2><span id="article-title">Even More Savings</span></h2>
+            <div class="article-content">
+              <header class="article-header">
+                <p>advertorial</p>
+                <h3>Tricks Homeowners Use to Eliminate Bills</h3>
+              </header>
+              <p>
+                Surging energy bills, unpredictable weather patterns, and dissatisfaction with utility companies have
+                homeowners scrambling...
+                <a href="https://www.google.com" target="_blank"
+                  aria-label="Read more about tricks homeowners use to eliminate bills">read more</a>
+              </p>
+            </div>
+          </article>
+        </aside>
+      </main>
+    </div>
+  </div>
 </body>
 </html>
