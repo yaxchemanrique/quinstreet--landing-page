@@ -22,6 +22,58 @@ const USER_DETAILS_SUBMISSION_URL = 'https://httpbin.org/post';
 
 const userDetailsForm = document.querySelector('#user-details-form');
 const submitButton = userDetailsForm.querySelector('#submit-button');
+const phoneInput = userDetailsForm.querySelector('#phone-number');
+
+/*
+  * Formats a given phone number to the format (xxx) xxx-xxxx.
+  * Assumes input is a string that may contain non-digit characters.
+  * It strips out non-digit characters and formats the phone number accordingly.
+
+  Expected Usage:
+  * This function should be used to format the phone number string before displaying it to the user.
+  
+  Dependencies:
+  * - `value`: A string that may contain the raw phone number (with or without non-digit characters).
+
+  * @param {string} value - The phone number string to format.
+  * @returns {string} - The formatted phone number in the format (xxx) xxx-xxxx, or an incomplete format if there are not enough digits.
+*/
+function phoneNumberFormatter(value) {
+  if (!value) return value;
+
+  // Remove non-digit characters
+  let phoneNumber = value.replace(/\D/g, '');
+  const phoneNumberLength = phoneNumber.length;
+
+  const areaCode = phoneNumber.slice(0, 3);
+  const prefix = phoneNumber.slice(3, 6);
+  const lineNumber = phoneNumber.slice(6, 10);
+
+  if (phoneNumberLength < 4) { return phoneNumber; }
+  if (phoneNumberLength < 7) { return `(${areaCode}) ${prefix}`; }
+  return `(${areaCode}) ${prefix}-${lineNumber}`;
+}
+
+/*
+  * Handles phone number input and applies formatting.
+  * Triggered on blur event of the phone number input field.
+  * This function formats the phone number string once the user leaves the input field.
+ 
+  Expected Usage:
+  * Bind this function to the blur event of the phone number input to format the value when the user leaves the field.
+  
+  Dependencies:
+  * - `event.target.value`: The current value of the phone number input field.
+  
+  * @param {Event} event - The blur event object triggered when the user leaves the phone number input field.
+  * @returns {void}
+*/
+function phoneNumberHandler(event) {
+  const formattedInput = phoneNumberFormatter(event.target.value);
+  event.target.value = formattedInput;
+}
+
+phoneInput.addEventListener('blur', phoneNumberHandler);
 
 /*
   * Validates individual form fields based on specific rules.
