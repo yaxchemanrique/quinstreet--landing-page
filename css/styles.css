@@ -140,10 +140,49 @@ aside {
   justify-content: center;
 }
 
+/* 
+article:
+  This style block defines the visual appearance of an article element, including a decorative border effect.
+
+  Custom Properties:
+  * --_title-width: A custom property dynamically set via JavaScript to accommodate dynamic title lengths within the article.
+    It adjusts the border styling in response to changes in the title's width.
+  * --_border-clr: Sets the border color using the CSS variable --clr-secondary-400.
+  * --_border-width: Defines the thickness of the borders with a value of 2px.
+  * --_title-margin-inline: Provides an additional 2-rem margin on each side of the title's transparent space in the top border, ensuring visual separation from the article borders.
+
+  Design Properties:
+  * position: relative, allowing accurate placement of the title relative to its borders.
+
+  Background and Borders:
+  * Background properties (position, size, repeat, image) simulate the complex border effect surrounding the article.
+  * Background position and size use --_border-width to determine precise placement and dimensions of border layers.
+  * Four linear gradient backgrounds are utilized to mimic the left, top, right, and bottom borders of the article:
+    * The top border is structured to incorporate both --_title-width and --_title-margin-inline, creating a gap between the border and the title to enhance readability and styling without overlap.
+    * The left, right, and bottom borders seamlessly integrate alongside the top border.
+*/
 .article {
+  /* --_title-width variable recovered using JavaScript */
+  --_title-margin-inline: 2rem;
+  --_border-clr: var(--clr-secondary-400);
+  --_border-width: 2px;
+
   font-size: 0.875rem;
   max-width: 404px;
   position: relative;
+
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-size: var(--_border-width) 100%, 100% var(--_border-width), var(--_border-width) 100%, 100% var(--_border-width);
+  background-repeat: no-repeat;
+  background-image: linear-gradient(0deg, transparent 0, var(--_border-clr) 0, var(--_border-clr) 100%, transparent 100%),
+    /* left border*/
+    linear-gradient(90deg, var(--_border-clr) 0%, var(--_border-clr) calc(50% - var(--_title-width) / 2 - var(--_title-margin-inline)), transparent calc(50% - var(--_title-width) / 2 - var(--_title-margin-inline)), transparent calc(50% + var(--_title-width) / 2 + var(--_title-margin-inline)), var(--_border-clr) calc(50% + var(--_title-width) / 2 + var(--_title-margin-inline))),
+    /* top border*/
+    linear-gradient(180deg, transparent 0, var(--_border-clr) 0, var(--_border-clr) 100%, transparent 100%),
+    /* right border*/
+    linear-gradient(270deg, transparent 0, var(--_border-clr) 0, var(--_border-clr) 100%, transparent 100%)
+    /* bottom border*/
+  ;
 }
 
 .article h2 {
