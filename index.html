@@ -21,7 +21,7 @@
           <h1 id="form-header"><span>Enter to win a 3rd generation Nest Learning Thermostat worth $249.</span></h1>
           <div>
             <label class="sr-only" for="name">Name</label>
-            <input type="text" placeholder="Name" name="name" id="name" pattern="^[A-Za-z]{2,}$"
+            <input type="text" placeholder="Name" name="name" id="name" pattern="^([A-Za-zÀ-ÿ]{2,}|\w{1})+(?:\s+([A-Za-zÀ-ÿ]{2,}|\w{1}))*$"
               title="Your name should be at least 2 letters long" required aria-required="true">
             <div class="input-row">
               <label class="sr-only" for="city">City</label>
