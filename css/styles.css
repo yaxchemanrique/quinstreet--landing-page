@@ -50,6 +50,18 @@ main {
   border-radius: 4px;
 }
 
+/* 
+.button:
+Defines the base styling for a button element with adaptable design using CSS variables.
+  * background-color: Utilizes the internal CSS variable --_button-background to allow dynamic background color assignment. 
+    * If --_button-background is not set, it defaults to --clr-neutral-900.
+
+  * color: Uses the CSS variable --_button-text to dynamically assign text color within buttons.
+    * If --_button-text is not set, it defaults to --clr-neutral-100.
+  
+  * hover & focus states: Adjusts the button's background color on interaction using --_btn-bg--hover.
+    * This variable provides a hover and focus state color if defined, otherwise defaults to --clr-neutral-800 for visual feedback upon user interaction.
+*/
 .button {
   background-color: var(--_button-background, var(--clr-neutral-900));
   color: var(--_button-text, var(--clr-neutral-100));
@@ -104,6 +116,13 @@ main {
   flex: 1;
 }
 
+/* 
+input:invalid:not(:placeholder-shown)
+
+  This selector targets input fields that:
+  * Are currently invalid (`:invalid`): An input field is considered invalid if it fails to meet the specified constraints, such as pattern, required, min, max, etc.
+  * Do not display their placeholder content (`:not(:placeholder-shown)`): This pseudo-class ensures that styles are applied only when the user has entered data into the input field.
+*/
 input:invalid:not(:placeholder-shown) {
   border: solid 1px var(--clr-error-400);
   outline: solid 1px var(--clr-error-400);

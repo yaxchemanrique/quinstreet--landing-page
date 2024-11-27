@@ -75,6 +75,13 @@ body {
 
 /* UTILITIES ------------------------------ */
 
+/* 
+.sr-only:not(:focus):not(:active):
+Class to hide elements visually while keeping them accessible to screen readers, used for accessibility purposes.
+  Usage Context:
+  * This class is should be applied to elements such as headings, label, or descriptive sections meant to enhance accessibility without interrupting visual design.
+  * The `:not(:focus):not(:active)` pseudo-classes remove these styles when the element receives focus or becomes active.
+*/
 .sr-only:not(:focus):not(:active) {
   position: absolute;
   clip: rect(0 0 0 0);
