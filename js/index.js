@@ -23,6 +23,16 @@ const USER_DETAILS_SUBMISSION_URL = 'https://httpbin.org/post';
 const userDetailsForm = document.querySelector('#user-details-form');
 const submitButton = userDetailsForm.querySelector('#submit-button');
 
+/*
+  * Validates individual form fields based on specific rules.
+  * For name, phone, and email, it checks specific formatting requirements.
+  
+  Expected Usage:
+  * Call this function on each input field before submitting the form to ensure each field's value is valid.
+  
+  * @param {HTMLInputElement} input - The input field to validate.
+  * @returns {boolean} - true if the input is valid; false otherwise.
+ */
 function validateField(input) {
   const value = input.value.trim();
   const id = input.id;
@@ -48,6 +58,18 @@ function validateField(input) {
   return isValid;
 }
 
+/*
+  * Disables all input fields and the submit button of the form to prevent further interaction after the form has been submitted successfully.
+  
+  Expected Usage:
+  * Call this function only after confirming that the form submission   succeeded.
+
+  Dependencies:
+  * - `submitButton`: A reference to the submit button element.
+  * - `userDetailsForm`: A reference to the form element containing the   inputs.
+  
+  * @returns {void}
+*/
 function disableFormInputsOnSuccess() {
   submitButton.textContent = 'submitted';
   submitButton.disabled = true;
@@ -57,6 +79,19 @@ function disableFormInputsOnSuccess() {
   });
 }
 
+/*
+  * Submits the form data to the API endpoint.
+  * Fetches the form data, converts it, and sends a POST request.
+  * Disables inputs and updates button text upon success.
+ 
+  Expected Usage:
+  * Call this function after ensuring that form validation has passed. 
+   
+  Dependencies:
+  * - `userDetailsForm`: A reference to the form element containing the inputs.
+  
+  * @returns {Promise<void>} - Resolves when the form submission is complete (successful or failed).
+*/
 async function submitForm() {
   const formData = new FormData(userDetailsForm);
   const data = Object.fromEntries(formData.entries());
@@ -76,6 +111,19 @@ async function submitForm() {
   }
 }
 
+/*
+  * Handles the form submission event.
+  * Validates all fields, and if valid, calls the submitForm function.
+  
+  Expected Usage:
+  * This function is bound to the form submission event. It prevents the default form submission behavior and handles the validation and submission process.
+
+  Dependencies:
+  * - `userDetailsForm`: A reference to the form element containing the inputs.
+
+  * @param {Event} event - The submit event object.
+  * @returns {void}
+*/
 function submitHandler(event) {
   event.preventDefault();
 
