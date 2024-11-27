@@ -62,11 +62,15 @@ button {
   cursor: pointer;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: var(--ff);
-  color: var(--clr-neutral-900);
 }
 
 /* UTILITIES ------------------------------ */
