@@ -66,6 +66,16 @@ Manages and displays a repeating background pattern.
   }
 }
 
+/* Ensures that the body's background color and patterns
+span the full height of the viewport, even when the content
+is insufficient to fill the screen. This prevents visual
+cut-offs of the background on larger displays, maintaining
+consistent background appearance. */
+.background-pattern,
+.background-transition {
+  min-height: 100vh;
+}
+
 /* NAV ------------------------------ */
 nav {
   background-color: var(--clr-neutral-900);
