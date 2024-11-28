@@ -31,9 +31,9 @@
             </div>
             <label class="sr-only" for="phone-number">Phone Number</label>
             <input type="tel" name="phone-number" id="phone-number" placeholder="Phone Number"
-              pattern="^\(\d{3}\) \d{3}-\d{4}$" title="Please enter a valid phone number" required aria-required="true" autocomplete="tel">
+              pattern="^\(\d{3}\) \d{3}-\d{4}$" inputmode="tel" title="Please enter a valid phone number" required aria-required="true" autocomplete="tel">
             <label class="sr-only" for="email">Email Address</label>
-            <input type="email" name="email" id="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            <input type="email" name="email" id="email" placeholder="Email Address" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" inputmode="email"
               title="Enter a valid email address" required aria-required="true" autocomplete="email">
             <button class="button button-primary" id="submit-button" aria-label="Submit entry form to win">
               enter to win
