@@ -69,7 +69,7 @@ Manages and displays a repeating background pattern.
 */
 
 .background-pattern {
-  background-image: url('../assets/images/bg-pattern.svg');
+  background-image: linear-gradient(#ffffff, #ffffff00 455px), url('../assets/images/bg-pattern.svg');
   background-size: 60vw;
   padding-bottom: 2.625rem;
 }
