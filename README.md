@@ -78,6 +78,8 @@ There are aspects regarding accessibility and contrast that deserve consideratio
   - The article text achieves AA compliance with a contrast ratio of `5.43`. For optimal accessibility, consideration could be given to reaching AAA standards for better legibility.
   - The "Read more" link within the article section faces contrast challenges with an approximate ratio of `1.59`, due to the patterned background. A review of color or placement might be necessary to enhance accessibility.
 
+| | |
+|---|---|
 | ![Contrast analysis showing a 2.3:1 ratio between #F6931D and #FFFFFF, failing AA and AAA standards for both normal and large text](./docs/submit-button.png) | ![Contrast analysis showing a 1.49:1 ratio between #D8D8D8 and #A0BC57, failing AA and AAA standards for both normal and large text](./docs/advertorial-tag.png)|
 | ![Contrast analysis showing a 5.43:1 ratio between #D8D8D8 and #545253, failing AAA standards for normal text](./docs/article-text.png) | ![Contrast analysis showing a 1.59:1 ratio between #D8D8D8 and #6EB7C2, failing AA and AAA standards for both normal and large text](./docs/read-more-link.png) |
 
