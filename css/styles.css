@@ -31,10 +31,23 @@ Pseudo-element implementing the animation and visual layering for .background-tr
 .background-transition::before {
   content: '';
   position: absolute;
-  inset: 0;
   z-index: -1;
   background-color: var(--_bg-color-b);
   animation: opacity-fade-out 10s infinite alternate ease-in-out;
+}
+
+/* `inset: 0` fallback for older browsers */
+.background-transition::before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@supports (inset: 0) {
+  .background-transition::before {
+    inset: 0;
+  }
 }
 
 @keyframes opacity-fade-out {
