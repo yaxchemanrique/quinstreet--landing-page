@@ -1,21 +1,27 @@
 @font-face {
   font-family: 'Montserrat';
   font-weight: 300;
-  src: url('../assets/fonts/Montserrat/Montserrat-Light.woff2') format('woff2'),
+  src: local('Montserrat Light'),
+    local('Montserrat-Light'),
+    url('../assets/fonts/Montserrat/Montserrat-Light.woff2') format('woff2'),
     url('../assets/fonts/Montserrat/Montserrat-Light.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Montserrat';
   font-weight: 400;
-  src: url('../assets/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'),
+  src: local('Montserrat Regular'),
+    local('Montserrat-Regular'),
+    url('../assets/fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'),
     url('../assets/fonts/Montserrat/Montserrat-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Montserrat';
   font-weight: 600;
-  src: url('../assets/fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2'),
+  src: local('Montserrat SemiBold'),
+    local('Montserrat-SemiBold'),
+    url('../assets/fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2'),
     url('../assets/fonts/Montserrat/Montserrat-SemiBold.woff') format('woff');
 }
 
@@ -81,6 +87,8 @@ img {
 
 body {
   line-height: 1.5;
+  /* Improves rendering in Webkit-bases browsers.
+  It renders text with slightly less contrast and sharper edges*/
   -webkit-font-smoothing: antialiased;
   font-family: var(--ff);
 }
