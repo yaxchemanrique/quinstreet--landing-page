@@ -71,12 +71,7 @@ Manages and displays a repeating background pattern.
 .background-pattern {
   background-image: url('../assets/images/bg-pattern.svg');
   background-size: 60vw;
-}
-
-@media (min-width: 767px) {
-  .background-pattern {
-    background-size: 35vw;
-  }
+  padding-bottom: 2.625rem;
 }
 
 /* Ensures that the body's background color and patterns
@@ -89,19 +84,27 @@ consistent background appearance. */
   min-height: 100vh;
 }
 
+@media (min-width: 767px) {
+  .background-pattern {
+    background-size: 35vw;
+    padding-bottom: 5.75rem;
+  }
+}
+
 /* NAV ------------------------------ */
 nav {
   background-color: var(--clr-neutral-900);
   padding-block: 22px 21px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* MAIN ------------------------------ */
 
 main {
   padding: 1rem;
+  padding-top: 0;
 }
 
 /* USER DETAILS FORM ------------------------------ */
@@ -179,14 +182,14 @@ Defines the base styling for a button element with adaptable design using CSS va
   --_button-hover-background: var(--clr-primary-500);
 }
 
-#user-details-form>div {
+#user-details-form .inputs-container {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   margin-block: 1rem 1.375rem;
   margin-inline: auto;
-  padding-inline: 24px;
-  padding-block-end: 22px;
+  padding-inline: 1.375rem;
+  padding-block-end: 1.375rem;
 }
 
 .input-row {
@@ -205,6 +208,17 @@ Defines the base styling for a button element with adaptable design using CSS va
 
 .input-row #state {
   flex: 1;
+}
+
+@media (min-width: 767px) {
+  #user-details-form .inputs-container {
+    padding-inline: 3.375rem;
+    margin-block-start: 1.75rem;
+  }
+
+  .input-row {
+    gap: 1.625rem;
+  }
 }
 
 /* 
@@ -254,12 +268,12 @@ article:
 */
 .article {
   /* --_title-width variable recovered using JavaScript */
-  --_title-margin-inline: 2rem;
+  --_title-margin-inline: 0.875rem;
   --_border-clr: var(--clr-secondary-400);
   --_border-width: 2px;
 
   font-size: 0.875rem;
-  max-width: 404px;
+  max-width: 290px;
   position: relative;
 
   background-position: 0 0, 0 0, 100% 0, 0 100%;
@@ -286,11 +300,8 @@ article:
   width: 100%;
 }
 
-.article-content {
-  background-color: var(--clr-neutral-100-75);
-  margin: 0.875rem;
-  margin-top: 1rem;
-  padding: 0.875rem;
+.article-header {
+  margin-bottom: 0.75rem;
 }
 
 .article-header p {
@@ -303,6 +314,15 @@ article:
 .article-header h3 {
   font-size: 1.25rem;
   font-weight: var(--fw-regular);
+  line-height: 1.2;
+}
+
+.article-content {
+  background-color: var(--clr-neutral-100-75);
+  margin: 0.875rem;
+  margin-top: 1rem;
+  padding: 0.875rem;
+  text-wrap: pretty;
 }
 
 .article-content a {
@@ -310,4 +330,19 @@ article:
   text-decoration: none;
   font-weight: var(--fw-bold);
   text-transform: uppercase;
+}
+
+.article-content a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 767px) {
+  .article {
+    --_title-margin-inline: 2rem;
+    max-width: 404px;
+  }
+
+  .article-content {
+    padding-bottom: 2.625rem;
+  }
 }
