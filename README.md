@@ -125,6 +125,15 @@ This approach not only addresses the retina display requirement by utilizing sca
 
 ---
 
+## Branch Feature Integration
+
+In addition to the core functionalities showcased in the main branch, a dedicated branch named `feature/production-ready-api` has been developed to integrate a more comprehensive API interaction within the form submission process. This branch includes:
+
+- **State Management:** The form inputs and submit button dynamically update based on the interaction state (idle, enable, disable) to enhance user experience.
+- **Error Handling Improvements:** Comprehensive error handling built into the submission process to catch and respond to network or server errors effectively.
+
+---
+
 ## Setup Instructions
 
 1. Clone the repository:
