@@ -51,9 +51,9 @@ These considerations assures that the application adheres to cross-browser stand
 - **Input Validation:**
   - Implemented both via HTML constraints and Javascript, ensuring redundancy in client-side validation.
   - Validation feedback is visualized by highlighting erroneous fields with a border in `#D50303`, offering immediate user feedback.
-  - **Name:** Requires at least 2 characters.
+  - **Name:** Requires at least 2 alphabetic characters and supports more than one name, including letters from various alphabets and symbols such as apostrophes, hyphens, and spaces.
   - **Phone Number:** Must be in the format `(XXX) XXX-XXXX` and validated both on blur and during form submission.
-  - **Email:** Must adhere to valid email format standards.
+  - **Email:** Must adhere to valid email format standards. The pattern is designed to accommodate characters from various alphabets, including those used in languages like Russian, while maintaining standard email structure (i.e., containing an '@' symbol and a valid domain suffix).
   - **City/State:** Optional fields.
   - Displays red border for invalid inputs.
 - **Phone Number Masking:** Applied during the `blur` event to prevent user experience pitfalls associated with formatting during `input` events (i.e., preventing awkward cursor positioning and motion).
@@ -134,6 +134,30 @@ In addition to the core functionalities showcased in the main branch, a dedicate
 
 ---
 
+## Development Notes
+
+- **Time Investment:** The completion of this project spanned approximately *19 hours*. The styling and responsive adjustments, specifically tailoring pixel-perfect outcomes across devices and compliance with WCAG, were notably time-intensive.
+- **Challenges:**
+  - Developing the border for the article section by creatively employing background properties combined with linear gradients to produce a decorative border effect.
+  - Creating a visually appealing yet resource-efficient background transition using pseudo-elements.
+  - Working with regex for form validation presented challenges, particularly in constructing patterns that correctly accommodate multisyllabic names, special characters, and various input formats.
+
+---
+
+## User Experience Recommendations
+
+- **Visible Labels for Inputs:** To enhance UX, visible input labels could be useful, as current reliance on placeholders may limit contextual guidance upon text input resulting in reduced clarity.
+- **Labels for Screen Readers:** Acknowledging users with screen readers, context-providing labels were specifically integrated for intuitive navigation and usage.
+- **Post-Submission State:** Post-successful submission, disabling form inputs alongside the button not only meets the requirements but mitigates potential user confusion—ensuring data integrity post-interaction.
+
+---
+
+## Live Site
+
+Visit the hosted site to explore the functionalities and view the project in action: [Hosted Page URL](https://yaxchemanrique.github.io/quinstreet--landing-page/)
+
+---
+
 ## Setup Instructions
 
 1. Clone the repository:
@@ -183,29 +207,6 @@ project
 - `styles.css`: Styles for responsive layout, animations, and design.
 - `index.js`: JavaScript logic for form handling, AJAX, and DOM interactions.
 - `assets`: Contains fonts and image resources.
-
----
-
-## Development Notes
-
-- **Time Investment:** The completion of this project spanned approximately X hours. The styling and responsive adjustments, specifically tailoring pixel-perfect outcomes across devices and compliance with WCAG, were notably time-intensive.
-- **Challenges:**
-  - Developing the border for the article section by creatively employing background properties combined with linear gradients to produce a decorative border effect.
-  - Creating a visually appealing yet resource-efficient background transition using pseudo-elements.
-
----
-
-## User Experience Recommendations
-
-- **Visible Labels for Inputs:** To enhance UX, visible input labels could be useful, as current reliance on placeholders may limit contextual guidance upon text input resulting in reduced clarity.
-- **Labels for Screen Readers:** Acknowledging users with screen readers, context-providing labels were specifically integrated for intuitive navigation and usage.
-- **Post-Submission State:** Post-successful submission, disabling form inputs alongside the button not only meets the requirements but mitigates potential user confusion—ensuring data integrity post-interaction.
-
----
-
-## Live Site
-
-Visit the hosted site to explore the functionalities and view the project in action: [Hosted Page URL](https://yaxchemanrique.github.io/quinstreet--landing-page/)
 
 ---
 
