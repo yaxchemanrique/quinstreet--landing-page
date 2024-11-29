@@ -169,7 +169,7 @@ Visit the hosted site to explore the functionalities and view the project in act
 2. Navigate to Project Directory:
 
 ```bash
-  cd lead-gen-landing-page
+  cd quinstreet--landing-page
 ```
 
 3. Open `index.html` in your browser to view the landing page.
