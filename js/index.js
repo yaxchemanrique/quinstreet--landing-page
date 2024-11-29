@@ -114,20 +114,42 @@ function validateField(input) {
   * Disables all input fields and the submit button of the form to prevent further interaction after the form has been submitted successfully.
   
   Expected Usage:
-  * Call this function only after confirming that the form submission   succeeded.
+  * Call this function with 'idle' before making a POST request, 'enable' on error, and 'disable' on successful form submission.
 
   Dependencies:
   * - `submitButton`: A reference to the submit button element.
   * - `userDetailsForm`: A reference to the form element containing the   inputs.
   
+  * @param {string} action - The action to determine the form state ('idle', 'enable', 'disable').
   * @returns {void}
 */
-function disableFormInputsOnSuccess() {
-  submitButton.textContent = 'submitted';
-  submitButton.disabled = true;
+function updateFormState(action) {
+  const actionSettings = {
+    idle: {
+      buttonMessage: 'submitting',
+      inputsDisabled: true,
+      buttonDisabled: true,
+    },
+    enable: {
+      buttonMessage: 'enter to win',
+      inputsDisabled: false,
+      buttonDisabled: false,
+    },
+    disable: {
+      buttonMessage: 'submitted',
+      inputsDisabled: true,
+      buttonDisabled: true,
+    },
+  };
+
+  const { buttonMessage, inputsDisabled, buttonDisabled } = actionSettings[action];
+
+  submitButton.textContent = buttonMessage;
+  submitButton.disabled = buttonDisabled;
+
   const formInputs = userDetailsForm.querySelectorAll('input');
   formInputs.forEach(input => {
-    input.disabled = true;
+    input.disabled = inputsDisabled;
   });
 }
 
@@ -135,18 +157,21 @@ function disableFormInputsOnSuccess() {
   * Submits the form data to the API endpoint.
   * Fetches the form data, converts it, and sends a POST request.
   * Disables inputs and updates button text upon success.
+  * Converts form data to JSON format, sends it, and updates the UI based on the response.
  
   Expected Usage:
-  * Call this function after ensuring that form validation has passed. 
+  * Call this function after ensuring all form validations are successful. 
    
   Dependencies:
-  * - `userDetailsForm`: A reference to the form element containing the inputs.
-  
+  * `userDetailsForm`: A reference to the form element containing the inputs.
+  * `updateFormState`: Function to update form interface states.
+
   * @returns {Promise<void>} - Resolves when the form submission is complete (successful or failed).
 */
 async function submitForm() {
   const formData = new FormData(userDetailsForm);
   const data = Object.fromEntries(formData.entries());
+  updateFormState('idle');
 
   try {
     const response = await fetch(USER_DETAILS_SUBMISSION_URL, {
@@ -156,10 +181,21 @@ async function submitForm() {
       },
       body: JSON.stringify(data),
     });
-  } catch (error) {
-    console.error("Error occurred during form submission:", error);
-  } finally {
-    disableFormInputsOnSuccess();
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Server error:', errorData);
+      updateFormState('enable');
+      return;
+    }
+
+    const result = await response.json();
+    // Handle success response
+    updateFormState('disable');
+  } catch (networkError) {
+    // Handle network errors or other errors occurring during the fetch
+    console.error("Network error occurred during form submission:", networkError);
+    updateFormState('enable');
   }
 }
 
